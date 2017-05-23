@@ -1,0 +1,15 @@
+.footer {
+    bottom: 0;
+    background-color: #222222;
+    color: darkgray;
+    height: 40px;
+    width: 100%;   
+    border-radius: 5px;    
+}
+
+span {
+    padding-top: 12px;;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}

@@ -15,13 +15,7 @@ var ChatEngine = function() {
         }
     };
     //Setting user name
-    this.setName = function() {
-        name = prompt("Enter your name:", "Chater");
-        if (!name || name === "") {
-            name = "Chater";
-        }
-        name = name.replace(/(<([^>]+)>)/ig, "");
-    };
+    
     //For sending message
     this.sendMsg = function() {
         msg = document.getElementById("msg").value;

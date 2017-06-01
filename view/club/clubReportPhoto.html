@@ -6,80 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../style/footer.css">     
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="../../app/club/club.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-inverse" role="navigation">            
-            <div class="navbar-header">               
-                <a class="navbar-brand" href="../index.html">Cluster</a>
-            </div>
-
-            <div class="collapse navbar-collapse navbar-ex1-collapse">               
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">sign up</a></li>
-                    <li><a href="#">log in</a></li>                   
-                </ul>
-            </div>
-        </nav>
+       <div id="navbar"></div>
         
         <div class="container">
           <div class="row profile">
 		        <div class="col-md-3">
-			        <div class="profile-sidebar">				        
-				        <div class="profile-userpic">
-					        <img src="../../src/clusterImg.jpg" class="img-responsive" alt="">
-				        </div>				        
-				        <div>
-						    <h3>讀書會名稱</h3>					        
-				        </div>				        				        				        
-				        <div>
-					        <ul class="nav">
-						        <li class="active">
-							        <a href="./clubIndex.html">
-							            <i class="glyphicon glyphicon-home"></i>
-							            簡介
-                                    </a>
-						        </li>
-						        <li>
-							        <a href="./clubMember.html">
-							            <i class="glyphicon glyphicon-user"></i>
-							            成員
-                                    </a>
-						        </li>
-                                <li>
-							        <a href="./clubReport.html">
-							            <i class="glyphicon glyphicon-folder-open"></i>
-							            會後整理
-                                    </a>
-						        </li>
-                                <li>
-							        <a href="./clubDiscussion.html">
-							            <i class="glyphicon glyphicon-globe"></i>
-							            討論版 
-                                    </a>
-						        </li>
-						        <li>
-							        <a href="./clubCalendar.html">
-							            <i class="glyphicon glyphicon-calendar"></i>
-							            行事曆 
-                                    </a>
-						        </li>                                
-                                <li>
-							        <a href="./clubVote.html">
-							            <i class="glyphicon glyphicon-question-sign"></i>
-							            參加聚會
-                                    </a>
-						        </li>						        
-					        </ul>
-                            <br>
-							<div>
-					        	<a href="./clubPreview.html">
-					        		<button type="button" class="btn btn-danger btn-sm">
-										退出社團
-									</button>					        
-								</a>
-				        	</div>
-				        </div>				        
-			        </div>
+			        <div id="sidebar"></div>
                     <br>
 		        </div>
 		    		<div class="col-md-9">

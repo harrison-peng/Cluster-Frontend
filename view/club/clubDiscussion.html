@@ -34,13 +34,17 @@
 								<div class="panel-body">																   
 									 <strong>發布留言</strong>	
 									 <hr>
-									 <textarea class="form-control" rows="5" id="comment" placeholder="發表一些留言吧..."></textarea>
+									 <div class="form-control" rows="5" id="chatZone"></div>
 									 <br>
 									 <div class="pull-right">
-									 	<button type="button" class="btn btn-primary">發布</button>
-									 </div>
+										<form onsubmit="chat.sendMsg(); return false;">
+                      						<label for="msg">Message:</label>
+                      						<input type="text" id="msg" name="msg" autofocus="true" placeholder="Type Your Meassage Here" />
+        			  						<input type="submit" />
+      			  						</form>
+									</div>
 								</div>
-							</div>
+							</div>				
 							
 						</div>
 					</div>					

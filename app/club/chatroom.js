@@ -25,22 +25,7 @@ var ChatEngine = function() {
         return false;
     };
     //sending message to server
-    this.ajaxSent = function() {
-        try {
-            xhr = new XMLHttpRequest();
-        } catch (err) {
-            alert(err);
-        }
-        xhr.open('GET', 'chatprocess.php?msg=' + msg + '&name=' + name, false);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4) {
-                if (xhr.status == 200) {
-                    msg.value = "";
-                }
-            }
-        };
-        xhr.send();
-    };
+    
     //HTML5 SSE(Server Sent Event) initilization
     this.initSevr = function() {
         sevr = new EventSource('chatprocess.php');

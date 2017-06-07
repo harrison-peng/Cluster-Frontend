@@ -3,7 +3,7 @@ $(document).ready(function(){
         $("#navbar").html(data);
     });
     $.ajax({
-        url: "http://140.119.137.186:30969/clubs",
+        url: "https://gotoclusterapi.herokuapp.com/clubs",
         type: "GET",
         dataType: "json",
         success: function(msg) {            

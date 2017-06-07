@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $.ajax({
-        url: " http://140.119.137.186:30969/memberlists/" + sessionStorage.getItem('club'),
+        url: " https://gotoclusterapi.herokuapp.com/memberlists/" + sessionStorage.getItem('club'),
         type: "GET",
         dataType: "json",
         success: function(msg){

@@ -7,7 +7,7 @@ $(document).ready(function(){
     });
     
     $.ajax({
-        url: "http://140.119.137.186:30969/clubs/" + sessionStorage.getItem("club"),
+        url: "https://gotoclusterapi.herokuapp.com/clubs/" + sessionStorage.getItem("club"),
         type: "GET",
         dataType: "json",
         success: function(msg) {            

@@ -4,10 +4,12 @@
         <title>Cluster - 簡介</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../../style/footer.css">     
+        <link rel="stylesheet" href="../../style/footer.css">
+		<link rel="stylesheet" href="../../style/calendar.css">       
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">        
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="../../app/club/club.js"></script>
+		<script src="/app/club/introduction.js"></script>
+		<script src="/app/club/club.js"></script>
     </head>
     <body>
         <div id="navbar"></div>
@@ -27,23 +29,23 @@
 						
 						<div class="panel panel-default">
 							<div class="panel-body">
-							   <p>這裡會有一些關於各個讀書會的簡介，像是這個讀書會的主題、讀書位成員大概的程度、對於這個讀書會的期望或是目標等等.......</p>
+							   <p id="description"></p>
 							   <hr>
 							   <h4>資本資訊</h4>							   
 							   <div class="row">
 								   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<p>類別：</p>
+										<p id="clubType">類別：</p>
 								   </div>
 								   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<p>創立時間：</p>			
+										<p id="clubCreateTime">創立時間：</p>			
 								   </div>
 							   </div>	
 							    <div class="row">
 								   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<p>聚會地點：</p>
+										<p id="clubPlace">聚會地點：</p>
 								   </div>
 								   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-										<p>讀書會人數：</p>			
+										<p id="clubMemberNumber">讀書會人數：</p>			
 								   </div>
 							   </div>									 							   														   							   		
 							</div>
@@ -53,20 +55,252 @@
 							<div class="panel-body">
 								<h4>近期聚會</h4>
 								<hr>
-								<div class="row">									
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-										<h3>第一次讀書會</h3>	
-										<h5>政大星巴克</h5>
-										<p>台北市文山區指南路二段64號</p>
-										<br>
-										<p>5 人將參加</p>
-									</div>
-									<h3>2017/5/23</h3>
-									<h3>7:00 PM</h3>
-								</div>								
+								<div class="row">																		
+									<div class="recentMeet"></div>																
+								</div>
 							</div>
 						</div>
-																		
+						<div class="month"> 
+						<ul>
+							<!--<li class="prev">&#10094;</li>-->
+							<!--<li class="next">&#10095;</li>-->
+							<li>
+							June
+							<br>
+							<span style="font-size:18px">2017</span>
+							</li>
+						</ul>
+					</div>
+
+					<ul class="weekdays">
+						<li>Sunday</li>
+						<li>Monday</li>
+						<li>Tuesday</li>
+						<li>Wednesday</li>
+						<li>Thursday</li>
+						<li>Friday</li>
+						<li>Saturday</li>						
+					</ul>
+
+					<ul class="days"> 
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									1
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									2
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									3									
+									<!--<br>	-->
+									第一次讀書會									
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									4
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									5
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									6
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									7
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									8
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									9
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									10
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									11
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									12
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									13
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									14
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									15
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									16
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									17
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									18
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									19
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									20
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									21
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									22
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									23
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									24
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									25
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									26
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									27
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									28
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									29
+								</div>
+							</div>	
+						</li>
+						<li>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									30
+								</div>
+							</div>	
+						</li>						
+					</ul>	
+					<br>									
 					</div>															
 				</div>
 		    </div>

@@ -8,6 +8,19 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="../app/index.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCM58bxsk9EGrZtvwSRzgQaD1RxQN9SkGI",
+            authDomain: "cluster-70c25.firebaseapp.com",
+            databaseURL: "https://cluster-70c25.firebaseio.com",
+            projectId: "cluster-70c25",
+            storageBucket: "cluster-70c25.appspot.com",
+            messagingSenderId: "283036596412"
+        };
+        firebase.initializeApp(config);
+        </script>
     </head>
     <body>
         <!--<nav class="navbar navbar-inverse" role="navigation">            
@@ -25,6 +38,34 @@
         <div id="navbar"></div>
           
         <div class="container">
+
+        <div id="login-box" class="login-popup">
+            <!--<a href="#" class="close"><img src="close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>-->
+            <form method="post" class="signin" action="#">
+                <fieldset class="textbox">
+            	<!--<label class="username">
+                <span>Username or email</span>
+                <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+                </label>
+                
+                <label class="password">
+                <span>Password</span>
+                <input id="password" name="password" value="" type="password" placeholder="Password">
+                </label>-->
+                
+                <button class="submit button btn btn-default" type="button">Sign in</button>
+                <br>
+                <br>
+                <button type="button" class="btn btn-default closed">cancel</button>
+                
+                <p>
+                <!--<a class="forgot" href="#">Forgot your password?</a>-->
+                </p>
+                
+                </fieldset>
+           </form>
+		</div>
+
             <form role="search">
                 <div class="input-group">
                     <input type="text" class="form-control input-lg" placeholder="Search">
@@ -59,7 +100,10 @@
         <div class="container">
             <h2>熱門讀書會</h2>
             <br>
-            <div class="row">
+            <div id="clubList">
+                
+            </div>
+            <!--<div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                    <div class="panel panel-default">
                         <div class="panel-heading">                            
@@ -175,7 +219,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
         <footer class="footer">				
 			<div class="row">			

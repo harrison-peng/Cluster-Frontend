@@ -1,4 +1,8 @@
 $(document).ready(function() {
+	if(sessionStorage.getItem('user')){
+		document.getElementById('signin').innertHTML = sessionStorage.getItem('user');
+	}
+
 	$('a.login-window').click(function() {
 
 		// Getting the variable's value from a link
@@ -33,6 +37,6 @@ $(document).ready(function() {
 });
 
 function toIndex() {
-    sessionStorage.clear();
+    sessionStorage.removeItem('club');
 	console.log('aaa');
 }

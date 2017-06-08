@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $.get("navBar.html",function(data){
+    $.get("/Cluster-Frontend/view/navBar.html",function(data){
         $("#navbar").html(data);
     });
     $.ajax({

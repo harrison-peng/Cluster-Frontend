@@ -6,11 +6,14 @@ document.getElementsByClassName('btn-facebook')[0].addEventListener("click", fun
     var provider = new firebase.auth.FacebookAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+      alert("Hallo!!"+ result.user.displayName+"!!Welcome!!");
       var token = result.credential.accessToken;
       console.log(token);
       // The signed-in user info.
-      var user = result.user;
+      var user = result.user.displayName;
       console.log(user);
+      sessionStorage.setItem("user", user);
+    //window.history.go(-1);
       // ...
     }).catch(function(error) {
       // Handle Errors here.

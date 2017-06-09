@@ -5,6 +5,9 @@ $(document).ready(function(){
     $.get("/Cluster-Frontend/view/sideBar.html", function(data) {
         $("#sidebar").html(data);
     });
+    $.get("/Cluster-Frontend/view/sideBarPreview.html", function(data) {
+        $("#sidebarPreview").html(data);
+    });
 
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/clubs/" + sessionStorage.getItem("club"),

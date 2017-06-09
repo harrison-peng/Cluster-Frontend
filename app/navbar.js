@@ -33,6 +33,5 @@ $(document).ready(function() {
 });
 
 function toIndex() {
-    sessionStorage.clear();
-	console.log('aaa');
+    sessionStorage.clear();	
 }

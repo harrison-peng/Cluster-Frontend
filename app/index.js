@@ -18,7 +18,6 @@ $(document).ready(function(){
 });
 
 function clickClub(element) {
-    var clubKey = element.getAttribute('key');
-    console.log(clubKey);
+    var clubKey = element.getAttribute('key');    
     sessionStorage.setItem("club", clubKey);
 }

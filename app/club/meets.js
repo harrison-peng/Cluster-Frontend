@@ -3,8 +3,7 @@ $(document).ready(function() {
         url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem("club"),
         type: "GET",
         dataType: "json",
-        success: function(msg) {
-            console.log(msg);
+        success: function(msg) {            
             msg.forEach(function(element) {
                 // console.log(element.meeting_time.slice(0,element.meeting_time.indexOf(",")));
                 // console.log(element.meeting_time.slice(element.meeting_time.indexOf(",")+1));
@@ -16,8 +15,72 @@ $(document).ready(function() {
         }
     });
 
+    $('#createMeeting').click(function () {
+        console.log('sadasd');
+        window.location.href = "/Cluster-Frontend/view/club/clubCreateMeeting.html";
+    });
+
+    var meetingName = '';
+    var meetingPlace = '';
+    var meetingAddress = '';
+    var month = "01";
+    var date = "01";
+    var hour = "01";
+    var minute = "00";    
+    var daynight = "pm";
+
+    $('#meetingName').on('change', function () {
+        meetingName = $("#meetingName").val();        
+    }).change();
+    $('#meetingPlace').on('change', function () {
+        meetingPlace = $("#meetingPlace").val();        
+    }).change();
+    $('#meetingAddress').on('change', function () {
+        meetingAddress = $("#meetingAddress").val();        
+    }).change();
+    $('#month').on('change', function () {
+        month = this.value;        
+    }).change();
+    $('#date').on('change', function () {
+        date = this.value;        
+    }).change();
+    $('#hour').on('change', function () {
+        hour = this.value;        
+    }).change();
+    $('#minute').on('change', function () {
+        minute = this.value;        
+    }).change();
+    $('#daynight').on('change', function () {
+        daynight = this.value;        
+    }).change();
+            
+    
+
     $('#submitMeeting').click(function() {
-        var name = $('#meetingName').val();
-        console.log(name);
+        if(daynight == "pm") {        
+            hourInt = parseInt(hour) + 12;
+            hour = hourInt.toString();        
+        }
+        var time = new Date('2017-' + month + '-' + date + 'T' + hour + ':' + minute + 'Z').toISOString();
+        
+        $.ajax({
+            url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem('club'),
+            type: "POST",
+            data: {
+                clubID: sessionStorage.getItem('club'),
+                token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZW1iZXJfaWQiOjYsImlhdCI6MTQ5NjY1MjAzMiwiZXhwIjo0MzIwMDAwMDE0OTY2NTIwMDB9.8tQUEkjdAOzBO8nNnqY10PsF3z5KSzbYFUvIweWKffk",
+                meetingtime: time,
+                name: meetingName,
+                place: meetingPlace,
+                address: meetingAddress
+            },
+            dataType: "text",
+            success: function(data, status) {                
+                window.location.href = "/Cluster-Frontend/view/club/clubMeets.html";
+            },
+            error: function(error) {                
+                console.log(error.responseText);
+            }
+        });
     });
 });

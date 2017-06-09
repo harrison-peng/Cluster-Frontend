@@ -5,8 +5,7 @@ $(document).ready(function() {
         type: "GET",
         dataType: "json",
         success: function(msg){
-            test = msg;
-            console.log(msg);
+            test = msg;            
 
             if(test.length)
             msg.forEach(function(element) {

@@ -3,8 +3,7 @@ $(document).ready(function() {
         url: "https://gotoclusterapi.herokuapp.com/clubs/sidebar/" + sessionStorage.getItem("club"),
         type: "GET",
         dataType: "json",
-        success: function(msg) {
-            console.log(msg);
+        success: function(msg) {            
             $("#clubSidebarName").append(msg.name);
             $("#clubImg").attr("src", msg.photo);
         }

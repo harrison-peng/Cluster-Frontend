@@ -1,8 +1,7 @@
 $(document).ready(function() {
-	if(sessionStorage.getItem('user')){
-		document.getElementById('signin').innertHTML = sessionStorage.getItem('user');
-	}
-
+	// if(sessionStorage.getItem('user')){
+	// 	document.getElementById('signin').innertHTML = sessionStorage.getItem('user');
+	// }
 	$('a.login-window').click(function() {
 
 		// Getting the variable's value from a link

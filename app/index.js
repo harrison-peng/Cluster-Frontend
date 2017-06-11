@@ -1,7 +1,15 @@
 $(document).ready(function(){
-    $.get("navBarLogin.html",function(data){
-        $("#navbar").html(data);
-    });
+
+    if(sessionStorage.getItem('user')){
+        $.get("/Cluster-Frontend/view/navBarLogin.html",function(data){
+            $("#navbar").html(data);
+        });
+    }else{
+        $.get("/Cluster-Frontend/view/navBar.html",function(data){
+            $("#navbar").html(data);
+        });
+    }
+
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/clubs",
         type: "GET",
@@ -18,6 +26,6 @@ $(document).ready(function(){
 });
 
 function clickClub(element) {
-    var clubKey = element.getAttribute('key');    
+    var clubKey = element.getAttribute('key');
     sessionStorage.setItem("club", clubKey);
 }

@@ -1,0 +1,10 @@
+.landingPage {
+    background-image: url("https://i2.wp.com/www.sarcopress.com/wp-content/uploads/2015/07/book-on-desk-1.jpg?w=960");
+    background-repeat: no-repeat; 
+    background-size: 100% 600px;
+}
+
+.title {
+    color: white;
+    text-align: center;
+}

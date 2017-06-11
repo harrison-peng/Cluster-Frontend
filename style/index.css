@@ -1,0 +1,24 @@
+img.landing-page {
+    width: 100%;
+    max-width: 100%;
+    height: 600px;
+    border-radius: 3px;
+    opacity: 0.5;
+}
+
+.landingPage {
+    background-image: url("http://mooxidesign.com/wp-content/uploads/2014/09/free-workspace-mockup-design-templates-to-showcase-your-creative-work-cover.png");
+    background-repeat: no-repeat; 
+    background-size: 100% 600px;
+}
+
+.searchbox {
+    position: absolute;
+    left: 50%;
+    margin-left: -200px; 
+}
+
+.clubitem:hover {
+    -webkit-box-shadow: 5px 5px 3px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 3px 3px rgba(0, 0, 0, 0.3);
+}

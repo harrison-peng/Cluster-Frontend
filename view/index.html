@@ -5,49 +5,52 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/Cluster-Frontend/style/footer.css">
+        <link rel="stylesheet" href="/Cluster-Frontend/style/index.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="/Cluster-Frontend/app/index.js"></script>
         </script>
     </head>
-    <body>
-        <div id="navbar"></div>
-
+    <body>        
+        <div class="landingPage">
+            <div id="navbar"></div>
+            <!--<img class="landing-page" src="/Cluster-Frontend/src/landingPage.jpg" alt="Cluster">            -->
+            
+            <div class="container">
+                <br><br><br><br><br><br><br><br><br><br>                
+                <div class="searchbox">
+                    <form role="search">
+                        <div class="input-group" style="width: 400px;">
+                            <input type="text" class="form-control input-lg" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default input-lg">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>                            
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>            
+        </div>
+        <br>
         <div class="container">
-
-            <form role="search">
-                <div class="input-group">
-                    <input type="text" class="form-control input-lg" placeholder="Search">
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default input-lg">
-                        <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </div>
-                </div>
-            </form>
-            <br>
-
             <div class="row">
                 <div class="col-sm-6">
-                     <select class="form-control input-lg">
-                <option value="分類">類別</option>
-            </select>
+                    <select class="form-control input-lg">
+                        <option value="分類">類別</option>
+                    </select>
                 </div>
                 <div class="col-sm-6">
-                      <select class="form-control input-lg">
-                <option value="分類">地區</option>
-            </select>
+                    <select class="form-control input-lg">
+                        <option value="分類">地區</option>
+                    </select>
                 </div>
             </div>
         </div>
-
         <br>
-        <br>
-        <br>
-        <br>
-
         <div class="container">
-            <h2>熱門讀書會</h2>
+            <h2 style="text-align:center;">熱門讀書會</h2>
             <br>
             <div id="clubList">
 

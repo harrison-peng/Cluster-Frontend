@@ -1,5 +1,15 @@
+window.addEventListener('pageshow', function(event) {
+    if(sessionStorage.getItem('user')){
+        $.get("/Cluster-Frontend/view/navBarLogin.html",function(data){
+            $("#navbar").html(data);
+        });
+    }else{
+        $.get("/Cluster-Frontend/view/navBar.html",function(data){
+            $("#navbar").html(data);
+        });
+    }
+});
 $(document).ready(function(){
-
     if(sessionStorage.getItem('user')){
         $.get("/Cluster-Frontend/view/navBarLogin.html",function(data){
             $("#navbar").html(data);

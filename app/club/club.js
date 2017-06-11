@@ -1,5 +1,4 @@
-$(document).ready(function(){
-
+window.addEventListener('pageshow', function(event) {
     if(sessionStorage.getItem('user')){
         $.get("/Cluster-Frontend/view/navBarLogin.html",function(data){
             $("#navbar").html(data);
@@ -9,6 +8,8 @@ $(document).ready(function(){
             $("#navbar").html(data);
         });
     }
+});
+$(document).ready(function(){
 
     $.get("/Cluster-Frontend/view/sideBar.html", function(data) {
         $("#sidebar").html(data);

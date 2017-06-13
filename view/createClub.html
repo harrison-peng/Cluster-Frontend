@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="/Cluster-Frontend/style/createClub.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="/Cluster-Frontend/app/index.js"></script>    
+        <script src="/Cluster-Frontend/app/index.js"></script>
+        <script src="/Cluster-Frontend/app/createClub.js"></script>   
     </head>
     <body>
         <div class="landingPage">
@@ -47,7 +48,7 @@
                             <br>
 
                             <h3>讀書會類別</h3>                            
-                            <select name="" id="clubPlace" class="form-control" required="required">
+                            <select name="" id="clubType" class="form-control" required="required">
                                 <option value="學術">學術</option>
                                 <option value="科技">科技</option>
                                 <option value="藝術">藝術</option>
@@ -57,17 +58,18 @@
                             <br>
 
                             <h3>上傳讀書會圖片</h3>                            
-                            <input id="input-1a" type="file" class="file" data-show-preview="false"> 
+                            <input id="inputImg" type="file" class="file" data-show-preview="false"> 
                             <br>
 
                         </div>
                                             
-                        <button type="submit" class="btn pull-right" style="background-color: #FF5511; color:white; width: 80px;">創立</button>
+                        <button type="submit" class="btn pull-right" style="background-color: #FF5511; color:white; width: 80px;" id="submitbtn">創立</button>
                     </form>                    
                 </div>
             </div>
             <br>                                    
         </div>
         
+        <div id="footer"></div>
     </body>
 </html>

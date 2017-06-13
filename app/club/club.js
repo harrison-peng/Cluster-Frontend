@@ -10,19 +10,71 @@ window.addEventListener('pageshow', function(event) {
     }
 });
 $(document).ready(function(){
+    var memberIsInClub = sessionStorage.getItem('memberIsInClub');
+        
+    if(memberIsInClub){
+        if(memberIsInClub == 'true') {      
+            $.get("/Cluster-Frontend/view/sideBar.html", function(data) {
+                $("#sidebar").html(data);
+            });
+        } else {        
+            $.get("/Cluster-Frontend/view/sideBarPreview.html", function(data) {
+                $("#sidebar").html(data);
+            });
+        }
+    } else {
+        function setMemberIsInClub() {
+            return new Promise(function(resolve, reject) {
+                var user = JSON.parse(sessionStorage.getItem('user'));
+                var isInClub = false;
 
-    $.get("/Cluster-Frontend/view/sideBar.html", function(data) {
-        $("#sidebar").html(data);
-    });
-    $.get("/Cluster-Frontend/view/sideBarPreview.html", function(data) {
-        $("#sidebarPreview").html(data);
+                if(user) {
+                    $.ajax({
+                        url: " https://gotoclusterapi.herokuapp.com/memberlists/" + sessionStorage.getItem('club'),
+                        type: "GET",
+                        dataType: "json",
+                        success: function(msg){
+                            if (msg.length) {
+                                msg.forEach(function(element) {
+                                    var id = element.id;                    
+                                    if (user.id == id) {
+                                        isInClub = true;                                                                   
+                                    }
+                                }, this);
+                            }
+                            sessionStorage.setItem("memberIsInClub", isInClub);
+                            resolve('member login');
+                        }
+                    }); 
+                } else {
+                    sessionStorage.setItem("memberIsInClub", "false");
+                    resolve('member not login');
+                }
+            });        
+        }
+
+        setMemberIsInClub().then(function(content) {            
+            if(memberIsInClub == 'true') {      
+                $.get("/Cluster-Frontend/view/sideBar.html", function(data) {
+                    $("#sidebar").html(data);
+                });
+            } else {        
+                $.get("/Cluster-Frontend/view/sideBarPreview.html", function(data) {
+                    $("#sidebar").html(data);
+                });
+            }
+        });   
+    }
+
+    $.get("/Cluster-Frontend/view/footer.html",function(data){
+        $("#footer").html(data);
     });
 
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/clubs/" + sessionStorage.getItem("club"),
         type: "GET",
         dataType: "json",
-        success: function(msg) {
+        success: function(msg) {            
             $("#description").append(msg.description);
             $("#clubCreateTime").append(msg.create_time);
             $("#clubPlace").append(msg.place);

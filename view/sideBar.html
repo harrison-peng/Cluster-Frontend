@@ -3,13 +3,16 @@
 
 <head>
   <script src="/Cluster-Frontend/app/club/sidebar.js"></script>
+  <link rel="stylesheet" href="/Cluster-Frontend/style/sidebar.css">
 </head>
 
-<body>
+<body>  
   <div class="profile-sidebar">
+    <br>
     <div class="profile-userpic">
-      <img class="img-responsive" alt="" id="clubImg" style='weight:250px;height:250px'>
+      <img class="img-responsive" alt="" id="clubImg" style='width:250px;height:250px;  border-radius: 5px;'>
     </div>
+    <hr>
     <div>
       <h3 id="clubSidebarName"></h3>
     </div>
@@ -17,8 +20,8 @@
       <ul class="nav">
         <li class="active">
           <a href="/Cluster-Frontend/view/club/clubIndex.html">
-								<i class="glyphicon glyphicon-home"></i>
-							    簡介
+						<i class="glyphicon glyphicon-home"></i>
+						簡介
           </a>
         </li>
         <li>
@@ -31,7 +34,7 @@
           <a href="/Cluster-Frontend/view/club/clubReport.html">
 					  <i class="glyphicon glyphicon-folder-open"></i>
 					  會後整理
-         </a>
+          </a>
         </li>
         <li>
           <a href="/Cluster-Frontend/view/club/clubDiscussion.html">
@@ -39,12 +42,6 @@
 						討論版
           </a>
         </li>
-        <!--<li>
-					        <a href="./clubCalendar.html">
-							    <i class="glyphicon glyphicon-calendar"></i>
-							    行事曆
-                            </a>
-					    </li>-->
         <li>
           <a href="/Cluster-Frontend/view/club/clubMeets.html">
 						<i class="glyphicon glyphicon-question-sign"></i>
@@ -56,11 +53,13 @@
       <div>
         <a href="/Cluster-Frontend/view/club/clubPreview.html">
 				  <button type="button" class="btn btn-danger btn-sm">
-					退出社團
+					  退出社團
 					</button>
 				</a>
       </div>
     </div>
+    <br><br>
+  </div>
 </body>
 
 </html>

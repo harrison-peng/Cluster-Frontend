@@ -4,20 +4,20 @@
         <title>Cluster - 討論版</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/Cluster-Frontend/style/chatroom.css">
-        <link rel="stylesheet" href="/Cluster-Frontend/style/footer.css">
+		<link rel="stylesheet" href="/Cluster-Frontend/style/chatroom.css"> 
+		<link rel="stylesheet" href="/Cluster-Frontend/style/club.css">       
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		    <script src="/Cluster-Frontend/app/club/club.js"></script>
 			<script src="/Cluster-Frontend/app/club/chatroom.js"></script>
     </head>
-    <body>
+    <body class="body">
         <div id="navbar"></div>
 
         <div class="container">
           <div class="row profile">
 		        <div class="col-md-3">
-			        <div id="sidebar"></div>
+			        <div class="shaddow" id="sidebar"></div>
 					<br>
 		        </div>
 		    <div class="col-md-9">
@@ -32,16 +32,21 @@
 					<div class="row">
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 
-							<div class="panel panel-default">
+							<div class="panel panel-default shaddow" id="chatpanel">
 								<div class="panel-body">
-									 <strong>發布留言</strong>
-									 <hr>
-									 <div class="form-control" rows="5" id="chatZone"></div>
-									 <br>
-									 <div class="pull-right">
-									      <input id="msg">
-                                          <button type="button" onclick="myFunction()">submit</button>
-									</div>
+									<strong>發布留言</strong>
+									<hr>
+									<div class="form-control" rows="5" id="chatZone"></div>
+									<br>									
+									<div class="row">
+										<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>											
+										<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+											<input id="message" class="form-control" style="width:100%;">		
+										</div>											
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+											<button type="button" class="btn btn-default" id="chatbtn">傳送</button>												
+										</div>											
+									</div>									
 								</div>
 							</div>
 						</div>
@@ -50,17 +55,7 @@
 		    </div>
 	        </div>
         </div>
-		<footer class="footer">
-			<div class="row">
-				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
-					<span>© 2017 Cluster</span>
-				</div>
-				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-				<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-					<span>關於我們</span>
-				</div>
-			</div>
-		</footer>
+		
+		<div id="footer"></div>
     </body>
 </html>

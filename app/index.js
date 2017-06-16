@@ -31,7 +31,7 @@ $(document).ready(function(){
         success: function(msg) {
 
             msg.forEach(function(element) {
-                var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='weight:250px;height:250px'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+                var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
                 ///Cluster-Frontend/view/club/clubIndex.html
                 $("#clubList").append(item);
             }, this);

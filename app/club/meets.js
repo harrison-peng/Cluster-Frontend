@@ -57,6 +57,7 @@ $(document).ready(function() {
     
 
     $('#submitMeeting').click(function() {
+        var user = JSON.parse(sessionStorage.getItem('user'));
         if(daynight == "pm") {        
             hourInt = parseInt(hour) + 12;
             hour = hourInt.toString();        
@@ -68,7 +69,7 @@ $(document).ready(function() {
             type: "POST",
             data: {
                 clubID: sessionStorage.getItem('club'),
-                token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZW1iZXJfaWQiOjYsImlhdCI6MTQ5NjY1MjAzMiwiZXhwIjo0MzIwMDAwMDE0OTY2NTIwMDB9.8tQUEkjdAOzBO8nNnqY10PsF3z5KSzbYFUvIweWKffk",
+                token: user.token,
                 meetingtime: time,
                 name: meetingName,
                 place: meetingPlace,

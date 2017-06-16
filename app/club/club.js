@@ -90,4 +90,52 @@ $(document).ready(function(){
             $("#clubName").append(msg.name);
         }
     });
+
+    $.ajax({
+        url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem("club"),
+        type: "GET",
+        dataType: "json",
+        success: function(msg) {            
+            msg.forEach(function(element) {
+                var name = element.name;
+                var date = element.meeting_time.split(',')[0];
+                var month = date.split('/')[1]; 
+                var time = date.split('/')[2];
+                var dateID = '#date' + time;
+                
+                if(month == '06')
+                $(dateID).append("<br>" + name);
+            }, this);
+        }
+    });
+
+    $('#joinClubbtn').click(function() {
+        // var user = JSON.parse(sessionStorage.getItem('user'));
+        // if(user) {
+        //     $.ajax({
+        //     url: "https://gotoclusterapi.herokuapp.com/clubs/" + sessionStorage.getItem('club'),
+        //     type: "POST",
+        //     data: {                
+        //         token: user.token,                
+        //     },
+        //     dataType: "text",
+        //     success: function(data, status) {
+        //         sessionStorage.setItem("memberIsInClub", "true");
+        //         console.log('success');               
+        //         // window.location.href = "/Cluster-Frontend/view/club/clubIndex.html";
+        //     },
+        //     error: function(error) {                
+        //         console.log(error.responseText);
+        //     }
+        // });
+        // } else {
+        //     window.location.href = "/Cluster-Frontend/view/signin.html";
+        // }
+
+        console.log('aaa');
+    });
+
+    $('#dropClub').click(function() {
+        console.log('sdas');
+    });
 });

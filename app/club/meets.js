@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //get meeting info
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem("club"),
         type: "GET",
@@ -8,13 +9,14 @@ $(document).ready(function() {
                 // console.log(element.meeting_time.slice(0,element.meeting_time.indexOf(",")));
                 // console.log(element.meeting_time.slice(element.meeting_time.indexOf(",")+1));
 
-                var item = "<div class='panel panel-default shaddow'><div class='panel-body'><h3>" + element.name + "</h3><div class='row'><div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'><h5>" + element.place + "</h5><p>" + element.address + "</p><br><p>5 人將參加</p></div><h3>"+element.meeting_time.slice(0,element.meeting_time.indexOf(","))+"</h3><h3>"+element.meeting_time.slice(element.meeting_time.indexOf(",")+1)+"</h3></div>";
+                var item = "<div class='panel panel-default shaddow'><div class='panel-body'><h3>" + element.name + "</h3><div class='row'><div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'><h5>" + element.place + "</h5><p>" + element.address + "</p><br><p>" + element.meet_member_number + " 人將參加</p></div><h3>"+element.meeting_time.slice(0,element.meeting_time.indexOf(","))+"</h3><h3>"+element.meeting_time.slice(element.meeting_time.indexOf(",")+1)+"</h3><div class='row'><div class='col-xs-10 col-sm-10 col-md-10 col-lg-10'></div><button type='button' class='btn btn-default' style='color: #FF5511' value='" + element.id + "' onClick='joinMeeting(this)'>參加聚會</button></div></div>";                
                 $('.meets').append(item);
                 
             }, this);
         }
     });
 
+    //create meeting
     $('#createMeeting').click(function () {
         console.log('sadasd');
         window.location.href = "/Cluster-Frontend/view/club/clubCreateMeeting.html";
@@ -85,3 +87,26 @@ $(document).ready(function() {
         });
     });
 });
+
+//join meeting
+function joinMeeting(meeting){
+    var user = JSON.parse(sessionStorage.getItem('user'));
+    $.ajax({
+            url: "https://gotoclusterapi.herokuapp.com/meets/member/" + meeting.value,
+            type: "POST",
+            data: {
+                token: user.token
+            },
+            dataType: "text",
+            success: function(data, status) {                
+                alert('已加入聚會！');
+                window.location.href = "/Cluster-Frontend/view/club/clubMeets.html";
+            },
+            error: function(error) {                
+                console.log(error.responseText);
+                if(error.responseText == 'user already in meet') {
+                    alert('你已經加入該次聚會！');
+                }
+            }
+        });
+}

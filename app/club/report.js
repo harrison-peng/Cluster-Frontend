@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //meets select
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem('club'),
         type: "GET",
@@ -12,4 +13,7 @@ $(document).ready(function() {
             }, this);
         }
     });
+
+    //get hackmd
+    
 });

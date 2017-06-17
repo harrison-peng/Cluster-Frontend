@@ -6,8 +6,9 @@
 // }
 
 $(document).ready(function() {
+  // GET discuss
   $.ajax({
-    url: "https://gotoclusterapi.herokuapp.com/discuss/" + sessionStorage.getItem("club"),
+    url: "https://gotoclusterapi.herokuapp.com/discuss/" + sessionStorage.getItem("club") + "?begin=0&number=100",
     type: "GET",
     dataType: "json",
     success: function(msg) {
@@ -21,6 +22,8 @@ $(document).ready(function() {
     }
   });
 
+
+  //POST discuss
   var user = JSON.parse(sessionStorage.getItem('user'));
   var name = user.name;
   var postToken = user.token;

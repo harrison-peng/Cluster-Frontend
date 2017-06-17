@@ -12,6 +12,7 @@ window.addEventListener('pageshow', function(event) {
 $(document).ready(function(){    
     var memberIsInClub = sessionStorage.getItem('memberIsInClub');
         
+    //side bar
     if(memberIsInClub){
         if(memberIsInClub == 'true') {      
             $.get("/Cluster-Frontend/view/sideBar.html", function(data) {
@@ -66,10 +67,12 @@ $(document).ready(function(){
         });   
     }
 
+    //footer
     $.get("/Cluster-Frontend/view/footer.html",function(data){
         $("#footer").html(data);
     });
 
+    //club information
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/clubs/" + sessionStorage.getItem("club"),
         type: "GET",
@@ -79,9 +82,11 @@ $(document).ready(function(){
             $("#clubCreateTime").append(msg.create_time);
             $("#clubPlace").append(msg.place);
             $("#clubMemberNumber").append(msg.member_number);
+            $('#clubType').append(msg.category);
         }
     });
 
+    //side bar club info
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/clubs/sidebar/" + sessionStorage.getItem("club"),
         type: "GET",
@@ -91,6 +96,7 @@ $(document).ready(function(){
         }
     });
 
+    //latest meet info
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem("club"),
         type: "GET",

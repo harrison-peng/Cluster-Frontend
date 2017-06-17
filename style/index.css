@@ -1,15 +1,18 @@
-img.landing-page {
+/*img.landing-page {
     width: 100%;
     max-width: 100%;
     height: 600px;
     border-radius: 3px;
     opacity: 0.5;
-}
+}*/
 
-.landingPage {
-    background-image: url("http://mooxidesign.com/wp-content/uploads/2014/09/free-workspace-mockup-design-templates-to-showcase-your-creative-work-cover.png");
+.landingPage {    
+    /*background-image: linear-gradient(to bottom, rgba(255,200,200,0.3) 0%,rgba(255,120,0,0.3) 100%),url("http://mooxidesign.com/wp-content/uploads/2014/09/free-workspace-mockup-design-templates-to-showcase-your-creative-work-cover.png");*/
+    background-image: linear-gradient(to bottom, rgba(255,250,250,0.3) 0%,rgba(255,250,255,0.3) 100%),url("/Cluster-Frontend/src/landingPage.png");
     background-repeat: no-repeat; 
-    background-size: 100% 600px;
+    background-size: 100% 725px;    
+    /*opacity: 0.5;*/
+    height: 725px;
 }
 
 .searchbox {

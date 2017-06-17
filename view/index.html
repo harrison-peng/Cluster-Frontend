@@ -10,39 +10,80 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="/Cluster-Frontend/app/index.js"></script>
     </head>
-    <body>        
+    <body>               
         <div class="landingPage">
-            <div id="navbar"></div>
-            <!--<img class="landing-page" src="/Cluster-Frontend/src/landingPage.jpg" alt="Cluster">            -->
-            
-            <div class="container">
-                <br><br><br>
-                <h1 style="text-align:center; color:#FF5511; font-size:100px; font-family:fantasy;">Cluster</h1>                
-                <div class="searchbox">
-                    <form role="search">
-                        <div class="input-group" style="width: 400px;">
-                            <input type="text" class="form-control input-lg" placeholder="尋找你專屬的讀書會...">
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default input-lg">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>                            
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            </div>            
+            <div id="navbar"></div>             
+            <br><br><br><br><br><br><br><br><br>
+            <h1 style="text-align:center; color:#FF5511; font-size:100px; font-family:fantasy; text-shadow: -1px 0 #CC0000, 0 1px #CC0000, 1px 0 #CC0000, 0 -1px #CC0000;">Cluster</h1>
+            <p style="text-align:center; color:white; font-size:80px; font-family:fantasy; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"><b>Cluster your idea  together</b></p>
+            <div class="searchbox">                   
+            </div>                            
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
-        <br>
+
+        <div style="height: 400px;">
+            <br><br><br>
+            <h2 style="text-align:center;">讀書這件事，還在一個人單打獨鬥嗎？</h2>
+            <br><br><br>                                                                    
+            <p style="font-size:20px; text-align:center;">在學校生活中，有沒有曾經想好好準備一科期末，但找不到一起奮鬥的同學，無法定下心來專心讀書？</p>
+            <p style="font-size:20px; text-align:center;">或是曾經想好好準備專業證照或是TOEFL、TOEIC或IELTS，卻苦於找不到互相切磋的戰友，只能孤軍奮戰嗎？</p>
+            <p style="font-size:20px; text-align:center;">在這裡你可以找到戰友一起學習，互相分享讀書資源，精進自己的能力不再是那麼枯燥乏味。</p>                            
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="background-color:#444444; height: 400px;">                
+                <div class="container">                
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="color:white;">
+                            <br><br>
+                            <h1 style="text-align:center;">What we have?</h1>
+                            <br><br>
+                            <ul style="padding-left:100px; font-size:20px;">
+                                <li>自由加入有興趣的讀書會，與不同的強者互相學習</li>
+                                <br>
+                                <li>強大的資料整理系統，記錄每次讀書會內容，掌握重點更加快速</li>
+                                <br>
+                                <li>內建行事曆功能，讓你可以一目了然所有的行程</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>                                        
+            </div>        
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="background-color:#F5DEB3;height:400px; ">                                
+                <img src="/Cluster-Frontend/src/logo.png" alt="logo" style="width:300px; height:300px; margin-left:70px; margin-top:50px;">
+            </div>
+        </div>
+
+        <div>
+            <br><br>
+            <h1 style="text-align:center;">加入Cluster，找到一起成長的戰友吧！</h1>    
+        </div>
+
+        <div style="height: 100px;"></div>
+        
+        <div style="margin-left:450px;">
+            <form role="search">
+                 <div class="input-group" style="width: 400px;">
+                    <input type="text" class="form-control input-lg" placeholder="尋找你專屬的讀書會...">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default input-lg">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br><br>
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <select class="form-control input-lg">
+                    <select class="form-control input-lg" id="category">
                         <option value="分類">類別</option>
                     </select>
                 </div>
                 <div class="col-sm-6">
-                    <select class="form-control input-lg">
+                    <select class="form-control input-lg" id="cPlace">
                         <option value="分類">地區</option>
                     </select>
                 </div>

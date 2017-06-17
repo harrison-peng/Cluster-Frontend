@@ -9,7 +9,7 @@ window.addEventListener('pageshow', function(event) {
         });
     }
 });
-$(document).ready(function(){
+$(document).ready(function(){    
     var memberIsInClub = sessionStorage.getItem('memberIsInClub');
         
     if(memberIsInClub){
@@ -19,11 +19,11 @@ $(document).ready(function(){
             });
         } else {        
             $.get("/Cluster-Frontend/view/sideBarPreview.html", function(data) {
-                $("#sidebar").html(data);
-            });
+                $("#sidebar").html(data);                
+            });            
         }
     } else {
-        function setMemberIsInClub() {
+        function setMemberIsInClub() {            
             return new Promise(function(resolve, reject) {
                 var user = JSON.parse(sessionStorage.getItem('user'));
                 var isInClub = false;
@@ -109,33 +109,5 @@ $(document).ready(function(){
         }
     });
 
-    $('#joinClubbtn').click(function() {
-        // var user = JSON.parse(sessionStorage.getItem('user'));
-        // if(user) {
-        //     $.ajax({
-        //     url: "https://gotoclusterapi.herokuapp.com/clubs/" + sessionStorage.getItem('club'),
-        //     type: "POST",
-        //     data: {                
-        //         token: user.token,                
-        //     },
-        //     dataType: "text",
-        //     success: function(data, status) {
-        //         sessionStorage.setItem("memberIsInClub", "true");
-        //         console.log('success');               
-        //         // window.location.href = "/Cluster-Frontend/view/club/clubIndex.html";
-        //     },
-        //     error: function(error) {                
-        //         console.log(error.responseText);
-        //     }
-        // });
-        // } else {
-        //     window.location.href = "/Cluster-Frontend/view/signin.html";
-        // }
-
-        console.log('aaa');
-    });
-
-    $('#dropClub').click(function() {
-        console.log('sdas');
-    });
 });
+

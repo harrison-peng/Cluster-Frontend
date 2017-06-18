@@ -12,7 +12,7 @@ $(document).ready(function() {
     type: "GET",
     dataType: "json",
     success: function(msg) {
-      console.log(msg);       
+      // console.log(msg);       
       msg.forEach(function(element) {
         var name = element.name;
         var message = element.message;

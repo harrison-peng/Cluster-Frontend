@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    //get club info
     $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/clubs/sidebar/" + sessionStorage.getItem("club"),
         type: "GET",
@@ -9,11 +10,12 @@ $(document).ready(function() {
         }
     });
 
+    //join club
     $('#joinClubbtn').click(function() {        
         var user = JSON.parse(sessionStorage.getItem('user'));
         if(user) {
             $.ajax({
-            url: "https://gotoclusterapi.herokuapp.com/clubs/" + sessionStorage.getItem('club'),
+            url: "https://gotoclusterapi.herokuapp.com/clubs/member/" + sessionStorage.getItem('club'),
             type: "POST",
             data: {                
                 token: user.token,                
@@ -34,11 +36,12 @@ $(document).ready(function() {
         }        
     });
 
+    //get out of club
     $('#dropClub').click(function() {        
         var user = JSON.parse(sessionStorage.getItem('user'));
         $.ajax({            
         // url: "http://140.119.137.186:30969/clubs/5",
-        url:"https://gotoclusterapi.herokuapp.com/clubs/" + sessionStorage.getItem('club'),
+        url:"https://gotoclusterapi.herokuapp.com/clubs/member/" + sessionStorage.getItem('club'),
         type: "DELETE",
         headers:{
             'token': user.token,

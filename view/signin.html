@@ -21,10 +21,11 @@
     firebase.initializeApp(config);
     </script>
 
-    <link rel="stylesheet" href="/Cluster-Frontend/style/footer.css">
+    <!-- <link rel="stylesheet" href="/Cluster-Frontend/style/footer.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="/Cluster-Frontend/app/index.js"></script>
+    <!-- <script src="/Cluster-Frontend/app/index.js"></script> -->
+
 
 
     <link rel="stylesheet" href="/Cluster-Frontend/style/bootstrap-social.css">
@@ -37,13 +38,13 @@
 <body style="background-color:#d2d2c5">
     <div id="navbar"></div>
     <div class="row">
-        <div class="col-sm-12 text-center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
             <h1 style="text-align:center; color:#FF5511; font-size:100px; font-family:fantasy;">Cluster</h1>
             <div class="btn-group-vertical">
-                <!-- <a class="btn btn-social btn-google">
+                <a class="btn btn-social btn-google" style="margin-bottom:20px;">
                    <i class="fa fa-google"></i> Sign in with google
-                </a> -->
-                <a class="btn btn-social btn-facebook">
+                </a>
+                <a class="btn btn-social btn-facebook" style="margin-bottom:20px;">
                    <i class="fa fa-facebook"></i> Sign in with Facebook
                 </a>
             </div>
@@ -51,14 +52,14 @@
     </div>
 
     <!-- footer增加置底-->
-    <footer class="footer" style="position:absolute;bottom:0px;">
+    <footer class="navbar navbar-fixed-bottom"  style="background-color: #222222; color: darkgray;height:40px;line-height:50px">
         <div class="row">
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-center">
+            <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2
+                        col-xs-offset-4 col-sm-offset-5 col-md-offset-5 col-lg-offset-5 text-center">
                 <span>© 2017 Cluster</span>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+            <div class="col-xs-4 col-sm-2 col-md-1 col-lg-1
+                        col-xs-offset-0 col-sm-offset-3 col-md-offset-4 col-lg-offset-4 text-center">
                 <span>關於我們</span>
             </div>
         </div>

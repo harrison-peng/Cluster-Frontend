@@ -1,41 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Cluster - 編輯社團</title>        
         <meta charset="UTF-8">
         <link rel="Shortcut Icon" type="image/x-icon" href="/Cluster-Frontend/src/logo.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/Cluster-Frontend/style/createClub.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="/Cluster-Frontend/app/index.js"></script>
-        <script src="/Cluster-Frontend/app/createClub.js"></script>   
+        <link rel="stylesheet" href="/Cluster-Frontend/style/club.css">       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="/Cluster-Frontend/app/club/club.js"></script>
+        <script src="/Cluster-Frontend/app/club/editInfo.js"></script>
     </head>
-    <body>
-        <div class="landingPage">
-            <div id="navbar"></div>            
-            
-            <div class="container">
-                <br><br><br><br><br><br><br>
-                <div class="title">
-                    <h1>Create Your Own Study Club</h1>
-                </div>                            
-                <br><br><br><br><br><br><br><br>
-            </div>            
-        </div>
-        <br><br>
+    <body class="body">
+        <div id="navbar"></div>
+        
         <div class="container">            
             <div class="row">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">                    
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <div class="shaddow" id="sidebar"></div>
+                </div>                
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                     <form role="form">                    
                         <div class="form-group">                            
                             <h3>讀書會名稱</h3>
-                            <input type="text" class="form-control" id="clubname" placeholder="請輸入讀書會名稱...">
+                            <input type="text" class="form-control" id="clubname">
                             <br>
 
                             <h3>描述</h3>                            
-                            <textarea name="" id="clubDescription" class="form-control" rows="3" required="required" placeholder="請簡述此讀書會的用途、目標、期望等等...."></textarea>                            
+                            <textarea name="" id="clubDescription" class="form-control" rows="3" required="required"></textarea>                            
                             <br>
 
                             <h3>地點</h3>                            
@@ -62,15 +53,14 @@
                             <input id="inputImg" type="file" class="file" data-show-preview="false"> 
                             <br>
 
-                        </div>
-                                            
-                        <button type="submit" class="btn pull-right" style="background-color: #FF5511; color:white; width: 80px;" id="submitbtn">創立</button>
+                        </div>                                                                    
+                        
+                        <button type="button" class="btn pull-right" style="background-color: #FF5511; color:white; width: 80px;" id="submitbtn">提交</button>
+                        
                     </form>
-                </div>
-            </div>
-            <br>                                    
+                </div>                
+            </div>                        
         </div>
         
-        <div id="footer"></div>
     </body>
 </html>

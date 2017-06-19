@@ -115,5 +115,9 @@ $(document).ready(function(){
         }
     });
 
+    //edit club
+    $('#editClub').click(function() {
+        window.location.href = "/Cluster-Frontend/view/club/clubEditInfo.html";
+    });
 });
 

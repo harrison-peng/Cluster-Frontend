@@ -1,3 +1,5 @@
+var imageBase64URL;
+
 $(document).ready(function() {
     var user = JSON.parse(sessionStorage.getItem('user'));
     var imageBase64;
@@ -6,66 +8,92 @@ $(document).ready(function() {
     var clubPlace;
     var clubType;
     var token = user.token;
-    function getBase64(file) {        
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-            
-            imageBase64 = reader.result;
-            // console.log(imageBase64);
-            
-        };
-        reader.onerror = function (error) {
-            imageBase64 = 'Error: ' + error;
-            // console.log(imageBase64);           
-        };        
-    }
-    
+    // function getBase64(file) {
+    //     var reader = new FileReader();
+    //
+    //     reader.onload = function () {
+    //         imageBase64 = reader.result;
+    //         // console.log(imageBase64);
+    //     };
+    //     reader.onerror = function (error) {
+    //         imageBase64 = 'Error: ' + error;
+    //         // console.log(imageBase64);
+    //     };
+    //
+    //     reader.readAsDataURL(file);
+    // }
+
     $('#clubname').on('change', function () {
-        clubName = $("#clubname").val();        
+        clubName = $("#clubname").val();
     }).change();
     $('#clubDescription').on('change', function () {
-        clubDescription = $("#clubDescription").val(); 
+        clubDescription = $("#clubDescription").val();
     }).change();
     $('#clubPlace').on('change', function () {
-        clubPlace = this.value;        
+        clubPlace = this.value;
     }).change();
     $('#clubType').on('change', function () {
-        clubType = this.value;        
+        clubType = this.value;
     }).change();
 
-    $('#inputImg').on('change', function () {
-        var image = $('#inputImg')[0].files[0];       
-        getBase64(image);
-    }).change();
+
+
+    $("#inputImg").change(function(){
+       readImage( this );
+    });
+
+    function readImage(input) {
+        if ( input.files && input.files[0] ) {
+            var FR= new FileReader();
+            FR.onload = function(e) {
+            // console.log(e.target.result);
+            imageBase64URL =e.target.result;
+            //    $('#img').attr( "src", e.target.result );
+            };
+         FR.readAsDataURL(input.files[0]);
+        }
+    }
 
     $('#submitbtn').click(function() {
-        // var image = $('#inputImg')[0].files[0];       
-        // getBase64(image);
-        // setTimeout(function() {
-        //     // $.ajax({
-        //     //     url: "http gotoclusterapi.herokuapp.com/clubs",
-        //     //     type: "POST",
-        //     //     data: {
-        //     //         token: token,
-        //     //         name: clubName,
-        //     //         category: clubType,
-        //     //         place: clubPlace,
-        //     //         photo: imageBase64,
-        //     //         description: clubDescription
-        //     //     },
-        //     //     dataType: "text",
-        //     //     success: function(data, status) {                
-        //     //         // window.location.href = "/Cluster-Frontend/view/club/clubMeets.html";
-        //     //         console.log('insert');
-        //     //     },
-        //     //     error: function(error) {                
-        //     //         console.log(error.responseText);
-        //     //     }
-        //     // });
-        //     console.log(imageBase64);
-        // }, 100);   
+        var reqData = {
+            token: token,
+            name: clubName,
+            category: clubType,
+            place: clubPlace,
+            photo: imageBase64URL,
+            description: clubDescription
+        };
 
-        console.log(imageBase64);  
+        $.ajax({
+            url: "https://gotoclusterapi.herokuapp.com/clubs",
+            type: "POST",
+            headers:{
+                'Content-Type':'application/json',
+            },
+            data: JSON.stringify(reqData),
+            // dataType: "text",
+            success: function(res, status) {
+                console.log('success');
+                // console.log(reqData);
+                console.log(res);
+                console.log('insert');
+                window.location.href = "/Cluster-Frontend/view/index.html";
+            },
+            error: function(error) {
+                console.log('error');
+                // console.log(reqData);
+                console.log(error.responseText);
+            }
+        });
+        // var image = $('#inputImg')[0].files[0];
+        // getBase64(image);
+        // readImage($("#inputImg"));
+
+        // setTimeout(function() {
+        //
+        //     console.log(imageBase64);
+        // }, 100);
+        //
+        // console.log(imageBase64);
     });
 });

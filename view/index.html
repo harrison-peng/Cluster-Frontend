@@ -63,26 +63,24 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
-                    <form role="search">
-                         <div class="input-group">
-                            <input type="text" class="form-control input-lg" placeholder="尋找你專屬的讀書會...">
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default input-lg">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>
-                            </div>
+                <div class="col-sm-4">                    
+                    <div class="input-group">
+                        <input type="text" class="form-control input-lg" placeholder="尋找你專屬的讀書會..." id="searchClub">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-default input-lg" id="searchClubBtn">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
                         </div>
-                    </form>
+                    </div>                    
                 </div>
                 <div class="col-sm-4">
                     <select class="form-control input-lg" id="category">
-                        <option value="分類">類別</option>
+                        <option value="">類別</option>
                     </select>
                 </div>
                 <div class="col-sm-4">
                     <select class="form-control input-lg" id="cPlace">
-                        <option value="分類">地區</option>
+                        <option value="">地區</option>
                     </select>
                 </div>
             </div>

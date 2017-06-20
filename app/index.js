@@ -54,7 +54,7 @@ $(document).ready(function(){
     });
 
     //place select
-        $.ajax({
+    $.ajax({
         url: "https://gotoclusterapi.herokuapp.com/clubs/all/place",
         type: "GET",
         dataType: "json",
@@ -67,6 +67,262 @@ $(document).ready(function(){
         error: function(error) {
             console.log(error);
         }
+    });
+
+    //search
+    var category;
+    var place;
+    var keyword;
+    // $('#category').on('change', function () {
+    //     category = this.value;
+    //     // console.log(category);
+
+    //     place = $('#cPlace :selected').text();
+    //     // console.log(place);
+
+    //     if(place == '地區') {
+    //         if(category == '類別') {
+    //             $.ajax({
+    //                 url: "https://gotoclusterapi.herokuapp.com/clubs",
+    //                 type: "GET",
+    //                 dataType: "json",
+    //                 success: function(msg) {
+    //                     $('#clubList').empty();
+    //                     // console.log(msg);
+    //                     msg.forEach(function(element) {
+    //                         var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+    //                         $('#clubList').append(item);
+    //                     }, this);                        
+    //                 },
+    //                 error: function(error) {
+    //                     console.log(error);
+    //                 }
+    //             });
+    //         } else {
+    //             $.ajax({
+    //                 url: "https://gotoclusterapi.herokuapp.com/clubs?category=" + category,
+    //                 type: "GET",
+    //                 dataType: "json",
+    //                 success: function(msg) {
+    //                     $('#clubList').empty();
+    //                     // console.log(msg);
+    //                     msg.forEach(function(element) {
+    //                         var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+    //                         $('#clubList').append(item);
+    //                     }, this);                        
+    //                 },
+    //                 error: function(error) {
+    //                     console.log(error);
+    //                 }
+    //             });
+    //         }        
+    //     } else {
+    //         if(category == '類別') {
+    //             $.ajax({
+    //                 url: "https://gotoclusterapi.herokuapp.com/clubs?place=" + place,
+    //                 type: "GET",
+    //                 dataType: "json",
+    //                 success: function(msg) {
+    //                     $('#clubList').empty();
+    //                     // console.log(msg);
+    //                     msg.forEach(function(element) {
+    //                         var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+    //                         $('#clubList').append(item);
+    //                     }, this);                        
+    //                 },
+    //                 error: function(error) {
+    //                     console.log(error);
+    //                 }
+    //             });
+    //         }  else {
+    //             $.ajax({
+    //                 url: "https://gotoclusterapi.herokuapp.com/clubs?place=" + place + "&category=" + category,
+    //                 type: "GET",
+    //                 dataType: "json",
+    //                 success: function(msg) {
+    //                     $('#clubList').empty();
+    //                     // console.log(msg);
+    //                     msg.forEach(function(element) {
+    //                         var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+    //                         $('#clubList').append(item);
+    //                     }, this);                        
+    //                 },
+    //                 error: function(error) {
+    //                     console.log(error);
+    //                 }
+    //             });
+    //         }             
+    //     }            
+    // });
+
+    // $('#cPlace').on('change', function () {
+    //     place = this.value;
+    //     // console.log(place);
+
+    //     category = $('#category :selected').text();
+    //     // console.log(category);
+
+    //     if(category == '類別') {
+    //         if(place == '地區') {
+    //             $.ajax({
+    //                 url: "https://gotoclusterapi.herokuapp.com/clubs",
+    //                 type: "GET",
+    //                 dataType: "json",
+    //                 success: function(msg) {
+    //                     $('#clubList').empty();
+    //                     // console.log(msg);
+    //                     msg.forEach(function(element) {
+    //                         var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+    //                         $('#clubList').append(item);
+    //                     }, this);                        
+    //                 },
+    //                 error: function(error) {
+    //                     console.log(error);
+    //                 }
+    //             });
+    //         } else {
+    //             $.ajax({
+    //                 url: "https://gotoclusterapi.herokuapp.com/clubs?place=" + place,
+    //                 type: "GET",
+    //                 dataType: "json",
+    //                 success: function(msg) {
+    //                     $('#clubList').empty();
+    //                     // console.log(msg);
+    //                     msg.forEach(function(element) {
+    //                         var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+    //                         $('#clubList').append(item);
+    //                     }, this);                        
+    //                 },
+    //                 error: function(error) {
+    //                     console.log(error);
+    //                 }
+    //             });
+    //         }
+    //     } else {
+    //         if(place == '地區'){                
+    //             $.ajax({
+    //                 url: "https://gotoclusterapi.herokuapp.com/clubs?category=" + category,
+    //                 type: "GET",
+    //                 dataType: "json",
+    //                 success: function(msg) {
+    //                     $('#clubList').empty();
+    //                     // console.log(msg);
+    //                     msg.forEach(function(element) {
+    //                         var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+    //                         $('#clubList').append(item);
+    //                     }, this);                        
+    //                 },
+    //                 error: function(error) {
+    //                     console.log(error);
+    //                 }
+    //             });
+    //         } else {
+    //             $.ajax({
+    //                 url: "https://gotoclusterapi.herokuapp.com/clubs?place=" + place + "&category=" + category,
+    //                 type: "GET",
+    //                 dataType: "json",
+    //                 success: function(msg) {
+    //                     $('#clubList').empty();
+    //                     // console.log(msg);
+    //                     msg.forEach(function(element) {
+    //                         var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+    //                         $('#clubList').append(item);
+    //                     }, this);                        
+    //                 },
+    //                 error: function(error) {
+    //                     console.log(error);
+    //                 }
+    //             });
+    //         }
+    //     }
+    // });
+
+    $('#cPlace').on('change', function () {
+        place = this.value;
+        // console.log(place);
+
+        category = $('#category :selected').val();
+        // console.log(category);
+
+        keyword = $('#searchClub').val();
+        // console.log(keyword);
+
+        $.ajax({
+            url: "https://gotoclusterapi.herokuapp.com/clubs?place=" + place + "&category=" + category + "&q=" + keyword,
+            type: "GET",
+            dataType: "json",
+            success: function(msg) {
+            $('#clubList').empty();
+                // console.log(msg);
+                msg.forEach(function(element) {
+                    var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+                    $('#clubList').append(item);
+                }, this);                        
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $('#category').on('change', function () {
+        category = this.value;
+        // console.log(category);
+
+        place = $('#cPlace :selected').val();
+        // console.log(place);
+
+        keyword = $('#searchClub').val();
+        // console.log(keyword);
+
+        $.ajax({
+            url: "https://gotoclusterapi.herokuapp.com/clubs?place=" + place + "&category=" + category + "&q=" + keyword,
+            type: "GET",
+            dataType: "json",
+            success: function(msg) {
+            $('#clubList').empty();
+                // console.log(msg);
+                msg.forEach(function(element) {
+                    var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+                    $('#clubList').append(item);
+                }, this);                        
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+
+    $('#searchClub').on('change', function () {
+        keyword = $("#searchClub").val();      
+    });
+
+    $('#searchClubBtn').click(function() {
+        category = $('#category :selected').val();
+        // console.log(category);
+
+        place = $('#cPlace :selected').val();
+        // console.log(place);
+
+        keyword = $('#searchClub').val();
+        // console.log(keyword);
+
+        $.ajax({
+            url: "https://gotoclusterapi.herokuapp.com/clubs?place=" + place + "&category=" + category + "&q=" + keyword,
+            type: "GET",
+            dataType: "json",
+            success: function(msg) {
+            $('#clubList').empty();
+                // console.log(msg);
+                msg.forEach(function(element) {
+                    var item = "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' onClick='clickClub(this)' key='" + element.id + "'><div class='panel panel-default clubitem'><a key='" + element.id + "' ><div class='panel-heading'><img src='" + element.photo + "' class='img-responsive' alt='Image' style='width:250px;height:250px;'></div><div class='panel-body text-center'>" + element.name + "</div></a></div></div>";
+                    $('#clubList').append(item);
+                }, this);                        
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
     });
 });
 
@@ -113,5 +369,5 @@ function clickClub(element) {
         return setMemberIsInClub();
     }).then(function (content) {        
         window.location.href = "/Cluster-Frontend/view/club/clubIndex.html";
-    });
+    });    
 }

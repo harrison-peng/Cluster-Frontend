@@ -13,3 +13,9 @@ document.getElementById('signout').addEventListener('click',function(){
     alert("signout!!");
     window.location.href = "/Cluster-Frontend/view/index.html";
 });
+
+function getUserToken() {
+    var user = JSON.parse(sessionStorage.getItem('user'));
+    var token = user.token;
+    sessionStorage.setItem('portfolio', token);
+}

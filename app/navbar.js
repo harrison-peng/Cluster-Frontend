@@ -35,4 +35,5 @@
 function toIndex() {
     sessionStorage.removeItem('club');
     sessionStorage.removeItem('memberIsInClub');
+    sessionStorage.removeItem('portfolio');
 }

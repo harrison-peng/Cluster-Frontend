@@ -12,7 +12,7 @@ $(document).ready(function() {
     type: "GET",
     dataType: "json",
     success: function(msg) {
-      // console.log(msg);       
+      // console.log(msg);
       msg.forEach(function(element) {
         var name = element.name;
         var message = element.message;
@@ -29,7 +29,7 @@ $(document).ready(function() {
   var postToken = user.token;
   var postMessage = "";
   $('#message').on('change', function () {
-        postMessage = $("#message").val();        
+        postMessage = $("#message").val();
     }).change();
 
   $('#chatbtn').click(function() {
@@ -38,20 +38,20 @@ $(document).ready(function() {
       type: "POST",
       data: {
         club_id: sessionStorage.getItem("club"),
-        // token: postToken,
-        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZW1iZXJfaWQiOjYsImlhdCI6MTQ5NjY1MjAzMiwiZXhwIjo0MzIwMDAwMDE0OTY2NTIwMDB9.8tQUEkjdAOzBO8nNnqY10PsF3z5KSzbYFUvIweWKffk",
+        token: postToken,
+        // token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZW1iZXJfaWQiOjYsImlhdCI6MTQ5NjY1MjAzMiwiZXhwIjo0MzIwMDAwMDE0OTY2NTIwMDB9.8tQUEkjdAOzBO8nNnqY10PsF3z5KSzbYFUvIweWKffk",
         message: postMessage
       },
       dataType: "text",
       success: function(data, status) {
-        console.log('insert');
+        // console.log('insert');
         $('#message').val('');
         var addMessage = "<div>" + name + ": " + postMessage + "</div>";
         $('#chatZone').append(addMessage);
       },
-      error: function(error) {                
+      error: function(error) {
         console.log(error.responseText);
       }
   });
-  });  
+  });
 });

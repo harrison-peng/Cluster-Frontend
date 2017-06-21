@@ -18,21 +18,22 @@ $(document).ready(function() {
             var firsthackmdID = msg[0].hackmd_id;
             // console.log('https://hackmd.io/' + firsthackmdID);
             $('#hackmd').attr('src','https://hackmd.io/' + firsthackmdID);
-        }
-    });
 
-    //get hackmd
-    $('#meetsSelect').on('change', function() {
-        var id = $(this).children(":selected").attr("id");
-        // console.log(id);
-        $.ajax({
-                url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem('club') + "/" + id,
-                type: "GET",
-                dataType: "json",
-                success: function(msg) {
-                    // console.log(msg);
-                    $('#hackmd').attr('src','https://hackmd.io/' + msg.hackmd_id);
-                }
-        });
+            //get hackmd
+            $('#meetsSelect').on('change', function() {
+                var id = $(this).children(":selected").attr("id");
+                // console.log(id);
+                $.ajax({
+                        url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem('club') + "/" + id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(msg) {
+                            // console.log(msg);
+                            $('#hackmd').attr('src','https://hackmd.io/' + msg.hackmd_id);
+                        }
+                });
+            });
+
+        }
     });
 });

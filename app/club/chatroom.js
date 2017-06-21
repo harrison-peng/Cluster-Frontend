@@ -12,11 +12,15 @@ $(document).ready(function() {
     type: "GET",
     dataType: "json",
     success: function(msg) {
-      // console.log(msg);
-      msg.forEach(function(element) {
+      console.log(msg);
+      msg.forEach(function(element) {  
+        var photo = element.photo;      
         var name = element.name;
         var message = element.message;
-        var item = "<div>" + name + ": " + message + "</div>";
+        // var item = "<div class='discussElement'><img class='img-circle' src='" + photo + "'><div>" + name + "</div><br><div>" + message + "</div></div>";
+
+        var item = "<div class='discussElement'><div class='row'><div class='col-xs-1 col-sm-1 col-md-1 col-lg-1'><img src='" + photo + "' class='img-circle'></div><div class='col-xs-10 col-sm-10 col-md-10 col-lg-10'><div class='discussName'>" + name + "</div><div class='discussContent'>" + message + "</div></div></div></div><br>";
+
         $('#chatZone').append(item);
       }, this);
     }

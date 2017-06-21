@@ -39,7 +39,7 @@ $(document).ready(function() {
 
 
     $("#inputImg").change(function(){
-       readImage( this );
+       readImage( this );       
     });
 
     function readImage(input) {
@@ -52,6 +52,9 @@ $(document).ready(function() {
             };
          FR.readAsDataURL(input.files[0]);
         }
+
+        // var item = "<img src='" + imageBase64URL + "' alt='clubPhoto'>";
+        // $('#photoDisplay').append(item);
     }
 
     $('#submitbtn').click(function() {

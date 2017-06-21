@@ -117,7 +117,20 @@ $(document).ready(function(){
 
     //edit club
     $('#editClub').click(function() {
-        window.location.href = "/Cluster-Frontend/view/club/clubEditInfo.html";
+        var user = JSON.parse(sessionStorage.getItem('user'));
+        $.ajax({
+            url: "https://gotoclusterapi.herokuapp.com/clubs/admin/" + sessionStorage.getItem("club") + "?token=" + user.token,
+            type: "GET",
+            dataType: "json",
+            success: function(msg) {                        
+                var admin = msg.indexOf(user.id);                
+                if(admin == -1) {
+                    alert('你沒有擁有此權限');
+                } else {
+                    window.location.href = "/Cluster-Frontend/view/club/clubEditInfo.html";
+                }
+            }
+        });        
     });
 });
 

@@ -4,12 +4,26 @@ $(document).ready(function() {
         url: "https://gotoclusterapi.herokuapp.com/meets/" + sessionStorage.getItem("club"),
         type: "GET",
         dataType: "json",
-        success: function(msg) {            
+        success: function(msg) {
+            var user = JSON.parse(sessionStorage.getItem('user'));
+            var id = user.id;
+            // console.log(msg);
             msg.forEach(function(element) {
+                var item;
+                // console.log(id);
+                // console.log(element);
                 // console.log(element.meeting_time.slice(0,element.meeting_time.indexOf(",")));
                 // console.log(element.meeting_time.slice(element.meeting_time.indexOf(",")+1));
 
-                var item = "<div class='panel panel-default shaddow'><div class='panel-body'><h3>" + element.name + "</h3><div class='row'><div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'><h5>" + element.place + "</h5><p>" + element.address + "</p><br><p>" + element.meet_member_number + " 人將參加</p></div><h3>"+element.meeting_time.slice(0,element.meeting_time.indexOf(","))+"</h3><h3>"+element.meeting_time.slice(element.meeting_time.indexOf(",")+1)+"</h3><div class='row'><div class='col-xs-10 col-sm-10 col-md-10 col-lg-10'></div><button type='button' class='btn btn-default' style='color: #FF5511' value='" + element.id + "' onClick='joinMeeting(this)'>參加聚會</button></div></div>";                
+                var isJoinMeeting = element.meet_member_list.indexOf(id);
+                if(isJoinMeeting == -1) {
+                    item = "<div class='panel panel-default shaddow'><div class='panel-body'><h3>" + element.name + "</h3><div class='row'><div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'><h5>" + element.place + "</h5><p>" + element.address + "</p><br><p>" + element.meet_member_list.length + " 人將參加</p></div><h3>"+element.meeting_time.slice(0,element.meeting_time.indexOf(","))+"</h3><h3>"+element.meeting_time.slice(element.meeting_time.indexOf(",")+1)+"</h3><div class='row'><div class='col-xs-10 col-sm-10 col-md-10 col-lg-10'></div><button type='button' class='joinBtn btn btn-default' style='color: #FF5511' value='" + element.id + "' onClick='joinMeeting(this)'>參加聚會</button></div></div>";
+                } else {
+                    item = "<div class='panel panel-default shaddow'><div class='panel-body'><h3>" + element.name + "</h3><div class='row'><div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'><h5>" + element.place + "</h5><p>" + element.address + "</p><br><p>" + element.meet_member_list.length + " 人將參加</p></div><h3>"+element.meeting_time.slice(0,element.meeting_time.indexOf(","))+"</h3><h3>"+element.meeting_time.slice(element.meeting_time.indexOf(",")+1)+"</h3><div class='row'><div class='col-xs-10 col-sm-10 col-md-10 col-lg-10'></div><button type='button' class='joinBtn btn btn-default' style='color: #FFFFFF; background-color: #0066FF;' value='" + element.id + "'>已參加</button></div></div>"
+                }
+
+
+                
                 $('.meets').append(item);
                 
             }, this);

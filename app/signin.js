@@ -12,6 +12,7 @@ window.addEventListener('pageshow', function(event) {
 });
 
 var add_update_member = function(options) {
+
     fetch("https://gotoclusterapi.herokuapp.com/members", options).then(function(response) {
         response.json().then(function(result){
             // console.log(result);

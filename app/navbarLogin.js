@@ -11,5 +11,5 @@ document.getElementById('signout').addEventListener('click',function(){
     sessionStorage.removeItem('user');
     sessionStorage.removeItem('memberIsInClub');
     alert("signout!!");
-    location.reload();
+    window.location.href = "/Cluster-Frontend/view/index.html";
 });
